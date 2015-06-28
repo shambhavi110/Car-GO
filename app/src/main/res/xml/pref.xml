@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+<PreferenceCategory
+android:summary="Emergency Contacts"
+android:title="Emergency Contacts" >
+<EditTextPreference
+    android:key="phno"
+    android:summary="Please enter your emergency Phone number"
+    android:title="Phone Number 1" />
+    <EditTextPreference
+        android:key="phno1"
+        android:summary="Please enter your emergency Phone number"
+        android:title="Phone Number 2" />
+<EditTextPreference
+    android:key="email"
+    android:summary="Please enter your emergency Email"
+    android:title="Email" />
+</PreferenceCategory>
+
+<PreferenceCategory
+android:summary="License Credentials"
+android:title="License Credentials" >
+    <EditTextPreference
+        android:key="License"
+        android:summary="License Number"
+        android:title="License Number" />
+    <EditTextPreference
+        android:key="Car"
+        android:summary="Car Registration Number"
+        android:title="Car Registration Number" />
+<CheckBoxPreference
+    android:key="checkBox"
+    android:summary="On/Off"
+    android:title="Help Others" />
+</PreferenceCategory>
+    <RingtonePreference
+        android:key="ring"
+        android:summary="alert"
+        android:title="Alert Sound"
+        />
+</PreferenceScreen>
