@@ -78,12 +78,13 @@ public class MyService extends Service implements SensorEventListener {
                 Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(1000);
                 mp.start();
+                mp.isLooping();
                 NotificationCompat.Builder mBuilder =  new NotificationCompat.Builder(this)
                                 .setSmallIcon(R.drawable.icon)
                                 .setContentTitle("Danger Zone!")
                                 .setContentText("Do you need Help?\nClick ME!!");
                 int mNotificationId = 001;
-                
+
                 NotificationManager mNotifyMgr =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 mNotifyMgr.notify(mNotificationId, mBuilder.build());

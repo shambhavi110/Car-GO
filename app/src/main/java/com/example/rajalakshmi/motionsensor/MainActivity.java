@@ -1,7 +1,9 @@
 package com.example.rajalakshmi.motionsensor;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -29,22 +31,19 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button b = (Button) findViewById(R.id.button);
-        b.setOnClickListener(new View.OnClickListener() {
+
+        AlertDialog.Builder alb = new AlertDialog.Builder(this);
+        alb.setMessage("Start Service by enabling GPS/Start Service\nCar Go , Get Set Go!!");
+        alb.setTitle("Car Go!");
+        final AlertDialog al;
+        alb.setPositiveButton("GOOO", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startService(new Intent(getBaseContext(), MyService.class));
-                startService(new Intent(getBaseContext(), MyService1.class));
+            public void onClick(DialogInterface dialogInterface, int i) {
+
             }
         });
-        Button b1 = (Button) findViewById(R.id.button2);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopService(new Intent(getBaseContext(), MyService.class));
-                stopService(new Intent(getBaseContext(), MyService1.class));
-            }
-        });
+        al = alb.create();
+        al.show();
     }
 
     @Override
@@ -65,7 +64,18 @@ public class MainActivity extends ActionBarActivity {
             Intent intent = new Intent(MainActivity.this,prefsActivity.class);
             startActivity(intent);
         }
-
+        if(id==R.id.action_start)
+        {
+            startService(new Intent(getBaseContext(), MyService.class));
+            startService(new Intent(getBaseContext(), MyService1.class));
+            Toast.makeText(this,"CAR GO, on the go!!",Toast.LENGTH_LONG).show();
+        }
+        if(id==R.id.action_stop)
+        {
+            stopService(new Intent(getBaseContext(), MyService.class));
+            stopService(new Intent(getBaseContext(), MyService1.class));
+            Toast.makeText(this,"Stopped",Toast.LENGTH_LONG).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 }
