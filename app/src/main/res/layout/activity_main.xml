@@ -18,11 +18,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="!Car GO"
+        android:text="Car Stop!"
         android:id="@+id/button2"
-        android:layout_above="@+id/button"
+        android:layout_alignTop="@+id/button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
+    <com.google.android.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:apiKey="0u7AJChI1NV8vCpj21C0Cq8YnNMrB6YMgigu0GA"
+        android:clickable="true"
+        android:layout_above="@+id/button" />
 
 </RelativeLayout>
